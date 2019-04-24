@@ -2,17 +2,18 @@ let database = require('./index').database;
 let Staff = require('./index').Staff;
 let Admin = require('./index').Admin;
 
-let Ola = new Staff('Ola', 'ola@ola.com');
-Ola.saveDetails();
-let Charles = new Admin('Charles', 'charles@charles.com');
-Charles.saveDetails();
+let ola = new Staff('Ola', 'ola@ola.com');
+ola.saveDetails();
+let charles = new Admin('Charles', 'charles@charles.com');
+charles.saveDetails();
 
 describe('Test cases for staff', function () {
     describe('Test for creating a staff', function () {
         //should check if the new staff was created with the right details
         test('should check if the new staff was created with the right details', function () {
-            expect(database.staff[0]).toHaveProperty('name', 'Ola');
-            expect(database.staff[0]).toHaveProperty('email', 'ola@ola.com');
+            let result = database.staff[0];
+            expect(result).toHaveProperty('name', 'Ola');
+            expect(result).toHaveProperty('email', 'ola@ola.com');
         })
     })
 
@@ -22,4 +23,19 @@ describe('Test cases for staff', function () {
             expect(database.staff[1]).toHaveProperty('isAdmin', true);
         })
     })
+});
+
+ola.makeRequest('1 week', 'annual');
+
+describe('Test cases for leave management', function () {
+    describe('Test for staff making a leave request', function () {
+        // should check if the new request was created with the right details
+        test('should check if the new request was created with the right details', function () {
+            let result = database.request[0];
+            expect(result).toHaveProperty('userId', 1);
+            expect(result).toHaveProperty('duration', '1 week')
+        })
+    })
 })
+
+console.log(database);
