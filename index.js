@@ -49,7 +49,8 @@ Staff.prototype.readOwnRequests = function () {
             array.push(database.request[i])
         }
     }
-    return array;
+    if (array.length) return array;
+    return 'staff has no leave request record!';
 }
 
 // Admin reads a leave request by leave id
