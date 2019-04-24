@@ -7,7 +7,7 @@ let database = {
 function Staff(name, email) {
     this.name = name;
     this.email = email;
-    this.userId = (database.staff.length) ? database.staff[database.staff.length - 1] + 1: 1;
+    this.staffId = (database.staff.length) ? database.staff[database.staff.length - 1] + 1: 1;
 }
 
 Staff.prototype.saveDetails = function () {
@@ -24,20 +24,21 @@ Admin.prototype = Object.create(Staff.prototype);
 Admin.prototype.constructor = Admin;
 
 // request constructor
-function Request(duration, leaveType, userId) {
+function Request(duration, leaveType, staffId) {
+    this.staffId = staffId;
     this.duration = duration;
     this.leaveType = leaveType;
-    this.id (database.request.length) ? database.request[database.request.length - 1] + 1: 1;
+    this.id = (database.request.length) ? database.request[database.request.length - 1] + 1: 1;
     database.request.push(this);
 }
 
-Request.prototype.makeRequest = function (duration, leaveType, userId) {
-    new Request(duration, leaveType, userId)
+Request.prototype.makeRequest = function (duration, leaveType, staffId) {
+    new Request(duration, leaveType, staffId)
 }
 
 // Staff makes request for leave
 Staff.prototype.makeRequest = function (duration, leaveType) {
-    Request.prototype.makeRequest(duration, leaveType, userId = this.userId)
+    Request.prototype.makeRequest(duration, leaveType, staffId = this.staffId)
 }
 
 // Staff reads his/her leave request(s)

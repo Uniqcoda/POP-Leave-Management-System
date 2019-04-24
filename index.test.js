@@ -32,7 +32,7 @@ describe('Test cases for leave management', function () {
         // should check if the new request was created with the right details
         test('should check if the new request was created with the right details', function () {
             let result = database.request[0];
-            expect(result).toHaveProperty('userId', 1);
+            expect(result).toHaveProperty('staffId', 1);
             expect(result).toHaveProperty('duration', '1 week')
         })
     })
