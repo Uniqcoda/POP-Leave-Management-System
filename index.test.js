@@ -42,7 +42,10 @@ describe('Test cases for leave management', function () {
             let result = ola.readOwnRequests();
             expect(result.length).toBe(database.request.length)
         });
-
+        test('should return a message if staff has no leave request record', function () {
+            let result = charles.readOwnRequests();
+            expect(result).toBe('staff has no leave request record!')
+        })
         // should return a staff's leave request by id
     })
 })
