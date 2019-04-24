@@ -14,6 +14,13 @@ Staff.prototype.saveDetails = function () {
     database.staff.push(this);
 }
 
+function Admin(name, email) {
+    Staff.call(this, name, email);
+    this.isAdmin = true;
+}
+
+Admin.prototype = Object.create(Staff.prototype);
+Admin.prototype.constructor = Admin;
 
 // Staff requests for leave
 
@@ -32,3 +39,4 @@ Staff.prototype.saveDetails = function () {
 
 module.exports.database = database;
 module.exports.Staff = Staff;
+module.exports.Admin = Admin;
