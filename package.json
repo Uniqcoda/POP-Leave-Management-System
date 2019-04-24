@@ -1,0 +1,22 @@
+{
+  "name": "pop_leave_management_system",
+  "version": "1.0.0",
+  "description": "This is an application for managing the way staff members go on leave in an organisation. It uses **prototype oriented programming and test driven development**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uniqcoda/POP_Leave_Management_System.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uniqcoda/POP_Leave_Management_System/issues"
+  },
+  "homepage": "https://github.com/Uniqcoda/POP_Leave_Management_System#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  }
+}
