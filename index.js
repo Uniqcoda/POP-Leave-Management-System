@@ -41,7 +41,7 @@ Staff.prototype.makeRequest = function (duration, leaveType) {
     Request.prototype.makeRequest(duration, leaveType, staffId = this.staffId)
 }
 
-// Staff reads his/her leave request(s)
+// Staff reads own leave request(s)
 
 // Admin reads a leave request by leave id
 

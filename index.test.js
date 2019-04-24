@@ -35,6 +35,14 @@ describe('Test cases for leave management', function () {
             expect(result).toHaveProperty('staffId', 1);
             expect(result).toHaveProperty('duration', '1 week')
         })
+    });
+    describe('Test for staff reading own leave request', function () {
+        // should return all leave requests of staff
+        test('should read all leave requests of staff', function () {
+            let result = ola.readOwnRequests();
+            expect(result.length).toBe(database.request.length)
+        })
+        // should return a staff's leave request by id
     })
 })
 
