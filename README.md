@@ -1,5 +1,5 @@
-# POP_Leave_Management_System
-This is an application for managing the way staff members go on leave in an organisation. It uses prototype oriented programming and test driven development.
+# POP Leave Management System
+This is an application for managing the way staff members go on leave in an organisation. It uses **prototype oriented programming and test driven development**.
 
 The application has a **database that saves every employee and admin staff**, as well as saves every leave request. It is designed such that **every user is a staff** and has some features such as **name and email**. Then each staff can be either a **regular staff** or an **admin staff**.  
 
