@@ -41,7 +41,8 @@ describe('Test cases for leave management', function () {
         test('should read all leave requests of staff', function () {
             let result = ola.readOwnRequests();
             expect(result.length).toBe(database.request.length)
-        })
+        });
+
         // should return a staff's leave request by id
     })
 })

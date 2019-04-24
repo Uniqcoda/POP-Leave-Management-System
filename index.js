@@ -7,7 +7,7 @@ let database = {
 function Staff(name, email) {
     this.name = name;
     this.email = email;
-    this.staffId = (database.staff.length) ? database.staff[database.staff.length - 1] + 1: 1;
+    this.staffId = (database.staff.length) ? database.staff[database.staff.length - 1] + 1 : 1;
 }
 
 Staff.prototype.saveDetails = function () {
@@ -28,7 +28,7 @@ function Request(duration, leaveType, staffId) {
     this.staffId = staffId;
     this.duration = duration;
     this.leaveType = leaveType;
-    this.id = (database.request.length) ? database.request[database.request.length - 1] + 1: 1;
+    this.id = (database.request.length) ? database.request[database.request.length - 1] + 1 : 1;
     database.request.push(this);
 }
 
@@ -42,6 +42,15 @@ Staff.prototype.makeRequest = function (duration, leaveType) {
 }
 
 // Staff reads own leave request(s)
+Staff.prototype.readOwnRequests = function () {
+    let array = []
+    for (let i = 0; i < database.request.length; i++) {
+        if (database.request[i].staffId === this.staffId) {
+            array.push(database.request[i])
+        }
+    }
+    return array;
+}
 
 // Admin reads a leave request by leave id
 
