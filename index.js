@@ -60,6 +60,7 @@ Staff.prototype.readRequestById = function (id) {
            return database.request[i];
         }
     }
+    return 'id not found!';
 }
 
 // Admin approves a leave request
