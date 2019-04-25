@@ -58,7 +58,7 @@ Staff.prototype.readRequestById = function (id) {
     if (this.isAdmin) {
         for (let i = 0; i < database.request.length; i++) {
             if (database.request[i].id === id) {
-               return database.request[i];
+                return database.request[i];
             }
         }
         return 'id not found!';
@@ -67,14 +67,17 @@ Staff.prototype.readRequestById = function (id) {
 };
 
 // Admin approves a leave request by id
-Staff.prototype.approveRequest= function (id) {
-    for (let i = 0; i < database.request.length; i++) {
-        if (database.request[i].id === id) {
-            database.request[i].isApproved = true;
-            return database.request[i];
+Staff.prototype.approveRequest = function (id) {
+    if (this.isAdmin) {
+        for (let i = 0; i < database.request.length; i++) {
+            if (database.request[i].id === id) {
+                database.request[i].isApproved = true;
+                return database.request[i];
+            }
         }
+        return 'id not found!';
     }
-    return 'id not found!';
+    return 'Access denied!';
 };
 // Admin rejects a leave request
 
