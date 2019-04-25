@@ -8,6 +8,8 @@ let charles = new Admin('Charles', 'charles@charles.com');
 charles.saveDetails();
 let cynthia = new Staff('Cynthia', 'cynth@more.com');
 cynthia.saveDetails();
+let emeka = new Admin('Emeka', 'emeka@mekus.com');
+emeka.saveDetails();
 
 describe('Test cases for staff', function () {
     describe('Test for creating a staff', function () {
@@ -45,10 +47,10 @@ describe('Test cases for leave management', function () {
         // should return all leave requests of staff
         test('should read all leave requests of staff', function () {
             let result = ola.readOwnRequests();
-            expect(result.length).toBe(database.request.length)
+            expect(result.length).toBe(2)
         });
         test('should return a message if staff has no leave request record', function () {
-            let result = charles.readOwnRequests();
+            let result = emeka.readOwnRequests();
             expect(result).toBe('staff has no leave request record!')
         })
     });
