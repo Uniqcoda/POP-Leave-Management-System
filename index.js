@@ -64,10 +64,12 @@ Staff.prototype.readRequestById = function (id) {
         return 'id not found!';
     }
     return 'Access denied!';
-}
+};
 
-// Admin approves a leave request
-
+// Admin approves a leave request by id
+Staff.prototype.approveRequest= function (id) {
+    
+};
 // Admin rejects a leave request
 
 // Admin reads all leave requests history unique to staff by the staff id

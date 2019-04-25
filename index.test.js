@@ -67,6 +67,15 @@ describe('Test cases for leave management', function () {
             let result = cynthia.readRequestById(2);
             expect(result).toBe('Access denied!')
         })
+    });
+    describe('Test for approving a leave request by id', function () {
+        // should add an approval parameter to a leave request
+        test('should add an approval parameter to a leave request', function () {
+            let result = emeka.approveRequest(1);
+            expect(result).toHaveProperty('isApproved', true);
+        })
+        // should return a message if there is no request with such id
+        // should deny access to non_admin
     })
 })
 
