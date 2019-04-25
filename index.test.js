@@ -104,9 +104,7 @@ describe('Test cases for leave management', function () {
             let result = ola.declineRequest(2);
             expect(result).toBe('Access denied!')
         });
-
-
-    })
+    });
 })
 
 console.log(database);
