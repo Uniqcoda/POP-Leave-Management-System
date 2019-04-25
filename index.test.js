@@ -110,7 +110,7 @@ describe('Test cases for leave management', function () {
         // should return all leave request by staff id
         test('should return all leave request by staff id', function () {
             let result = charles.readAllRequestsByStaffId(1);
-            expect(result.length).toBe(2)
+            expect(result.length).toBe(2)            
         });
         // should return a message if there is no staff with such id
         test('should return a message if there is no staff with such id', function () {
@@ -118,8 +118,11 @@ describe('Test cases for leave management', function () {
             expect(result).toBe('id not found!');
         });
         // should deny access to non-admin
+        test('should deny access to non_admin', function () {
+            let result = ola.readAllRequestsByStaffId(3);
+            expect(result).toBe('Access denied!')
+        });
     })
 })
 
-console.log(database);
 
