@@ -102,7 +102,8 @@ Staff.prototype.readAllRequestsByStaffId = function (id) {
             staffRequests.push(database.request[i])
         } 
     }
-    return staffRequests;
+    if (staffRequests.length) return staffRequests;
+    return 'id not found!';
 }
 
 // Admin reads all leave requests in the database
