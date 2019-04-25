@@ -61,11 +61,8 @@ describe('Test cases for leave management', function () {
             let result = charles.readRequestById(25);
             expect(result).toBe('id not found!');
         });
-        test('should deny access to non_admin', function () {
-            let result = cynthia.readRequestById(2);
-            expect(result).toBe('Access denied!')
-        })
     });
+
     describe('Test for approving a leave request by id', function () {
         test('should add an approval property to a leave request and make it true', function () {
             let result = emeka.approveRequest(1);
@@ -74,10 +71,6 @@ describe('Test cases for leave management', function () {
         test('should return a message if there is no request with such id', function () {
             let result = emeka.approveRequest(25);
             expect(result).toBe('id not found!');
-        });
-        test('should deny access to non_admin', function () {
-            let result = ola.approveRequest(2);
-            expect(result).toBe('Access denied!')
         });
     });
 
@@ -90,10 +83,6 @@ describe('Test cases for leave management', function () {
             let result = emeka.declineRequest(25);
             expect(result).toBe('id not found!');
         });
-        test('should deny access to non_admin', function () {
-            let result = ola.declineRequest(2);
-            expect(result).toBe('Access denied!')
-        });
     });
 
     describe('Test for reading all leave requests by a staff', function () {
@@ -105,19 +94,12 @@ describe('Test cases for leave management', function () {
             let result = charles.readAllRequestsByStaffId(25);
             expect(result).toBe('id not found!');
         });
-        test('should deny access to non_admin', function () {
-            let result = ola.readAllRequestsByStaffId(3);
-            expect(result).toBe('Access denied!')
-        });
     });
+
     describe('Test for reading all leave requests in the database', function () {
         test('should return all leave requests in the database', function () {
             let result = charles.readAllRequests();
             expect(result.length).toBe(4)
-        });
-        test('should deny access to non_admin to read all requests in database', function () {
-            let result = ola.readAllRequests();
-            expect(result).toBe('Access denied!')
         });
     })
 })

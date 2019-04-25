@@ -55,67 +55,52 @@ Staff.prototype.readOwnRequests = function () {
 }
 
 // Admin reads a leave request by leave id
-Staff.prototype.readRequestById = function (id) {
-    if (this.isAdmin) {
-        for (let i = 0; i < database.request.length; i++) {
-            if (database.request[i].id === id) {
-                return database.request[i];
-            }
+Admin.prototype.readRequestById = function (id) {
+    for (let i = 0; i < database.request.length; i++) {
+        if (database.request[i].id === id) {
+            return database.request[i];
         }
-        return 'id not found!';
     }
-    return 'Access denied!';
+    return 'id not found!';
 };
 
 // Admin approves a leave request by id
-Staff.prototype.approveRequest = function (id) {
-    if (this.isAdmin) {
-        for (let i = 0; i < database.request.length; i++) {
-            if (database.request[i].id === id) {
-                database.request[i].isApproved = true;
-                return database.request[i];
-            }
+Admin.prototype.approveRequest = function (id) {
+    for (let i = 0; i < database.request.length; i++) {
+        if (database.request[i].id === id) {
+            database.request[i].isApproved = true;
+            return database.request[i];
         }
-        return 'id not found!';
     }
-    return 'Access denied!';
+    return 'id not found!';
 };
 
 // Admin declines a leave request by id
-Staff.prototype.declineRequest = function (id) {
-    if (this.isAdmin) {
-        for (let i = 0; i < database.request.length; i++) {
-            if (database.request[i].id === id) {
-                database.request[i].isApproved = false;
-                return database.request[i];
-            }
+Admin.prototype.declineRequest = function (id) {
+    for (let i = 0; i < database.request.length; i++) {
+        if (database.request[i].id === id) {
+            database.request[i].isApproved = false;
+            return database.request[i];
         }
-        return 'id not found!';
     }
-    return 'Access denied!';
+    return 'id not found!';
 }
 
 // Admin reads all leave requests history unique to staff by the staff id
-Staff.prototype.readAllRequestsByStaffId = function (id) {
-    if (this.isAdmin) {
-        let staffRequests = [];
-        for (let i = 0; i < database.request.length; i++) {
-            if (database.request[i].staffId === id) {
-                staffRequests.push(database.request[i])
-            } 
+Admin.prototype.readAllRequestsByStaffId = function (id) {
+    let staffRequests = [];
+    for (let i = 0; i < database.request.length; i++) {
+        if (database.request[i].staffId === id) {
+            staffRequests.push(database.request[i])
         }
-        if (staffRequests.length) return staffRequests;
-        return 'id not found!';
     }
-    return 'Access denied!';
+    if (staffRequests.length) return staffRequests;
+    return 'id not found!';
 }
 
 // Admin reads all leave requests in the database
-Staff.prototype.readAllRequests = function () {
-    if (this.isAdmin) {
-        return database.request;
-    }
-    return 'Access denied!';
+Admin.prototype.readAllRequests = function () {
+    return database.request;
 }
 
 module.exports.database = database;
