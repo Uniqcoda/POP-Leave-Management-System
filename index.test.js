@@ -105,6 +105,16 @@ describe('Test cases for leave management', function () {
             expect(result).toBe('Access denied!')
         });
     });
+
+    describe('Test for reading all leave requests by a staff', function () {
+        // should return all leave request by staff id
+        test('should return all leave request by staff id', function () {
+            let result = charles.readAllRequestsByStaffId(1);
+            expect(result.length).toBe(2)
+        })
+        // should return a message if there is no request with such id
+        // should deny access to non-admin
+    })
 })
 
 console.log(database);
