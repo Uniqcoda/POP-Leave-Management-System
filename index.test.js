@@ -111,8 +111,12 @@ describe('Test cases for leave management', function () {
         test('should return all leave request by staff id', function () {
             let result = charles.readAllRequestsByStaffId(1);
             expect(result.length).toBe(2)
-        })
-        // should return a message if there is no request with such id
+        });
+        // should return a message if there is no staff with such id
+        test('should return a message if there is no staff with such id', function () {
+            let result = charles.readAllRequestsByStaffId(25);
+            expect(result).toBe('id not found!');
+        });
         // should deny access to non-admin
     })
 })
