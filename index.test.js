@@ -130,7 +130,10 @@ describe('Test cases for leave management', function () {
             expect(result.length).toBe(4)
         });
         // should deny access to non-admin
-
+        test('should deny access to non_admin to read all requests in database', function () {
+            let result = ola.readAllRequests();
+            expect(result).toBe('Access denied!')
+        });
     })
 })
 
