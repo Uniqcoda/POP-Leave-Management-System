@@ -54,6 +54,9 @@ Staff.prototype.readOwnRequests = function () {
 }
 
 // Admin reads a leave request by leave id
+Staff.prototype.readRequestById = function (id) {
+    
+}
 
 // Admin approves a leave request
 

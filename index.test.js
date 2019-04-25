@@ -46,7 +46,12 @@ describe('Test cases for leave management', function () {
             let result = charles.readOwnRequests();
             expect(result).toBe('staff has no leave request record!')
         })
-        // should return a staff's leave request by id
+    });
+    describe('Test for reading leave request by id', function () {
+        test('should return a request by id', function () {
+            let result = charles.readRequestById(1);
+            expect(result).toHaveProperty('leaveType', 'annual');
+        })
     })
 })
 
