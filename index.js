@@ -88,6 +88,7 @@ Staff.prototype.declineRequest = function (id) {
             return database.request[i];
         }
     }
+    return 'id not found!';
 }
 
 // Admin reads all leave requests history unique to staff by the staff id
