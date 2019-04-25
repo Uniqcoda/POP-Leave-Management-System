@@ -96,14 +96,17 @@ Staff.prototype.declineRequest = function (id) {
 
 // Admin reads all leave requests history unique to staff by the staff id
 Staff.prototype.readAllRequestsByStaffId = function (id) {
-    let staffRequests = [];
-    for (let i = 0; i < database.request.length; i++) {
-        if (database.request[i].staffId === id) {
-            staffRequests.push(database.request[i])
-        } 
+    if (this.isAdmin) {
+        let staffRequests = [];
+        for (let i = 0; i < database.request.length; i++) {
+            if (database.request[i].staffId === id) {
+                staffRequests.push(database.request[i])
+            } 
+        }
+        if (staffRequests.length) return staffRequests;
+        return 'id not found!';
     }
-    if (staffRequests.length) return staffRequests;
-    return 'id not found!';
+    return 'Access denied!';
 }
 
 // Admin reads all leave requests in the database
