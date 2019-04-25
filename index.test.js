@@ -100,6 +100,10 @@ describe('Test cases for leave management', function () {
             expect(result).toBe('id not found!');
         });
         // should deny access to non_admin
+        test('should deny access to non_admin', function () {
+            let result = ola.declineRequest(2);
+            expect(result).toBe('Access denied!')
+        });
 
 
     })
