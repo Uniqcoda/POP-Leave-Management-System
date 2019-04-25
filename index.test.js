@@ -70,11 +70,11 @@ describe('Test cases for leave management', function () {
     });
     describe('Test for approving a leave request by id', function () {
         // should add an approval parameter to a leave request
-        test('should add an approval parameter to a leave request', function () {
+        test('should add an approval property to a leave request and make it true', function () {
             let result = emeka.approveRequest(1);
             expect(result).toHaveProperty('isApproved', true);
-            console.log(database.request[0]);                      
-        })
+            console.log(database.request[0]);
+        });
         // should return a message if there is no request with such id
         test('should return a message if there is no request with such id', function () {
             let result = emeka.approveRequest(25);
@@ -85,6 +85,19 @@ describe('Test cases for leave management', function () {
             let result = ola.approveRequest(2);
             expect(result).toBe('Access denied!')
         });
+    });
+
+    describe('Test for declining a leave request by id', function () {
+        // should add an approval parameter to a leave request
+        test('should add an approval property to a leave request and make it false', function () {
+            let result = emeka.declineRequest(4);
+            expect(result).toHaveProperty('isApproved', false);
+            console.log(database.request[3]);
+        });
+        // should return a message if there is no request with such id
+        // should deny access to non_admin
+
+
     })
 })
 

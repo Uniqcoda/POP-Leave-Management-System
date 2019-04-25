@@ -79,7 +79,11 @@ Staff.prototype.approveRequest = function (id) {
     }
     return 'Access denied!';
 };
-// Admin rejects a leave request
+
+// Admin declines a leave request
+Staff.prototype.declineRequest = function (id) {
+    
+}
 
 // Admin reads all leave requests history unique to staff by the staff id
 
