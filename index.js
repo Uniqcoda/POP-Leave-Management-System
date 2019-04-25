@@ -82,7 +82,12 @@ Staff.prototype.approveRequest = function (id) {
 
 // Admin declines a leave request
 Staff.prototype.declineRequest = function (id) {
-    
+    for (let i = 0; i < database.request.length; i++) {
+        if (database.request[i].id === id) {
+            database.request[i].isApproved = false;
+            return database.request[i];
+        }
+    }
 }
 
 // Admin reads all leave requests history unique to staff by the staff id
