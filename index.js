@@ -74,6 +74,7 @@ Staff.prototype.approveRequest= function (id) {
             return database.request[i];
         }
     }
+    return 'id not found!';
 };
 // Admin rejects a leave request
 
