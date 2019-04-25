@@ -6,6 +6,8 @@ let ola = new Staff('Ola', 'ola@ola.com');
 ola.saveDetails();
 let charles = new Admin('Charles', 'charles@charles.com');
 charles.saveDetails();
+let cynthia = new Staff('Cynthia', 'cynth@more.com');
+cynthia.saveDetails();
 
 describe('Test cases for staff', function () {
     describe('Test for creating a staff', function () {
@@ -25,6 +27,9 @@ describe('Test cases for staff', function () {
     })
 });
 
+ola.makeRequest('1 week', 'annual');
+charles.makeRequest('1 month', 'sick');
+cynthia.makeRequest('2 months', 'maternity');
 ola.makeRequest('1 week', 'annual');
 
 describe('Test cases for leave management', function () {
@@ -55,6 +60,10 @@ describe('Test cases for leave management', function () {
         test('should return a message if there is no request with such id', function () {
             let result = charles.readRequestById(25);
             expect(result).toBe('id not found!');
+        });
+        test('should deny access to non_admin', function () {
+            let result = cynthia.readRequestById(2);
+            expect(result).toBe('Access denied!')
         })
     })
 })
