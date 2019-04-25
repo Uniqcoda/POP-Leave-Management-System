@@ -111,7 +111,10 @@ Staff.prototype.readAllRequestsByStaffId = function (id) {
 
 // Admin reads all leave requests in the database
 Staff.prototype.readAllRequests = function () {
-    return database.request;
+    if (this.isAdmin) {
+        return database.request;
+    }
+    return 'Access denied!';
 }
 
 module.exports.database = database;
