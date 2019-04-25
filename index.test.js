@@ -75,6 +75,10 @@ describe('Test cases for leave management', function () {
             expect(result).toHaveProperty('isApproved', true);                      
         })
         // should return a message if there is no request with such id
+        test('should return a message if there is no request with such id', function () {
+            let result = emeka.approveRequest(25);
+            expect(result).toBe('id not found!');
+        });
         // should deny access to non_admin
     })
 })
