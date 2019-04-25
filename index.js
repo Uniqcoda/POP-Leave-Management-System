@@ -68,7 +68,12 @@ Staff.prototype.readRequestById = function (id) {
 
 // Admin approves a leave request by id
 Staff.prototype.approveRequest= function (id) {
-    
+    for (let i = 0; i < database.request.length; i++) {
+        if (database.request[i].id === id) {
+            database.request[i].isApproved = true; //bug here: test is passing but this new property is not reflecting in the database
+            return database.request[i];
+        }
+    }
 };
 // Admin rejects a leave request
 

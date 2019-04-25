@@ -72,7 +72,7 @@ describe('Test cases for leave management', function () {
         // should add an approval parameter to a leave request
         test('should add an approval parameter to a leave request', function () {
             let result = emeka.approveRequest(1);
-            expect(result).toHaveProperty('isApproved', true);
+            expect(result).toHaveProperty('isApproved', true);                      
         })
         // should return a message if there is no request with such id
         // should deny access to non_admin
@@ -80,3 +80,5 @@ describe('Test cases for leave management', function () {
 })
 
 console.log(database);
+console.log(database.request[0]);
+
