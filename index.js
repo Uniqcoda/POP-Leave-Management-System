@@ -110,7 +110,9 @@ Staff.prototype.readAllRequestsByStaffId = function (id) {
 }
 
 // Admin reads all leave requests in the database
-
+Staff.prototype.readAllRequests = function () {
+    
+}
 
 module.exports.database = database;
 module.exports.Staff = Staff;

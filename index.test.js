@@ -107,10 +107,10 @@ describe('Test cases for leave management', function () {
     });
 
     describe('Test for reading all leave requests by a staff', function () {
-        // should return all leave request by staff id
+        // should return all leave requests by staff id
         test('should return all leave request by staff id', function () {
             let result = charles.readAllRequestsByStaffId(1);
-            expect(result.length).toBe(2)            
+            expect(result.length).toBe(2)
         });
         // should return a message if there is no staff with such id
         test('should return a message if there is no staff with such id', function () {
@@ -122,6 +122,15 @@ describe('Test cases for leave management', function () {
             let result = ola.readAllRequestsByStaffId(3);
             expect(result).toBe('Access denied!')
         });
+    });
+    describe('Test for reading all leave requests in the database', function () {
+        // should read all leave requests in database
+        test('should return all leave requests in the database', function () {
+            let result = charles.readAllRequests();
+            expect(result.length).toBe(4)
+        });
+        // should deny access to non-admin
+
     })
 })
 
