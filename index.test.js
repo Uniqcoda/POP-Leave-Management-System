@@ -95,6 +95,10 @@ describe('Test cases for leave management', function () {
             console.log(database.request[3]);
         });
         // should return a message if there is no request with such id
+        test('should return a message if there is no request with such id', function () {
+            let result = emeka.declineRequest(25);
+            expect(result).toBe('id not found!');
+        });
         // should deny access to non_admin
 
 
