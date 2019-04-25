@@ -36,7 +36,6 @@ ola.makeRequest('1 week', 'annual');
 
 describe('Test cases for leave management', function () {
     describe('Test for staff making a leave request', function () {
-        // should check if the new request was created with the right details
         test('should check if the new request was created with the right details', function () {
             let result = database.request[0];
             expect(result).toHaveProperty('staffId', 1);
@@ -44,7 +43,6 @@ describe('Test cases for leave management', function () {
         })
     });
     describe('Test for staff reading own leave request', function () {
-        // should return all leave requests of staff
         test('should read all leave requests of staff', function () {
             let result = ola.readOwnRequests();
             expect(result.length).toBe(2)
@@ -69,18 +67,14 @@ describe('Test cases for leave management', function () {
         })
     });
     describe('Test for approving a leave request by id', function () {
-        // should add an approval parameter to a leave request
         test('should add an approval property to a leave request and make it true', function () {
             let result = emeka.approveRequest(1);
             expect(result).toHaveProperty('isApproved', true);
-            console.log(database.request[0]);
         });
-        // should return a message if there is no request with such id
         test('should return a message if there is no request with such id', function () {
             let result = emeka.approveRequest(25);
             expect(result).toBe('id not found!');
         });
-        // should deny access to non_admin
         test('should deny access to non_admin', function () {
             let result = ola.approveRequest(2);
             expect(result).toBe('Access denied!')
@@ -88,18 +82,14 @@ describe('Test cases for leave management', function () {
     });
 
     describe('Test for declining a leave request by id', function () {
-        // should add an approval parameter to a leave request
         test('should add an approval property to a leave request and make it false', function () {
             let result = emeka.declineRequest(4);
             expect(result).toHaveProperty('isApproved', false);
-            console.log(database.request[3]);
         });
-        // should return a message if there is no request with such id
         test('should return a message if there is no request with such id', function () {
             let result = emeka.declineRequest(25);
             expect(result).toBe('id not found!');
         });
-        // should deny access to non_admin
         test('should deny access to non_admin', function () {
             let result = ola.declineRequest(2);
             expect(result).toBe('Access denied!')
@@ -107,29 +97,24 @@ describe('Test cases for leave management', function () {
     });
 
     describe('Test for reading all leave requests by a staff', function () {
-        // should return all leave requests by staff id
         test('should return all leave request by staff id', function () {
             let result = charles.readAllRequestsByStaffId(1);
             expect(result.length).toBe(2)
         });
-        // should return a message if there is no staff with such id
         test('should return a message if there is no staff with such id', function () {
             let result = charles.readAllRequestsByStaffId(25);
             expect(result).toBe('id not found!');
         });
-        // should deny access to non-admin
         test('should deny access to non_admin', function () {
             let result = ola.readAllRequestsByStaffId(3);
             expect(result).toBe('Access denied!')
         });
     });
     describe('Test for reading all leave requests in the database', function () {
-        // should read all leave requests in database
         test('should return all leave requests in the database', function () {
             let result = charles.readAllRequests();
             expect(result.length).toBe(4)
         });
-        // should deny access to non-admin
         test('should deny access to non_admin to read all requests in database', function () {
             let result = ola.readAllRequests();
             expect(result).toBe('Access denied!')

@@ -1,3 +1,4 @@
+// This is an application for managing the way staff members go on leave in an organisation. It uses prototype oriented programming and test driven development.
 let database = {
     staff: [],
     request: []
@@ -36,7 +37,7 @@ Request.prototype.makeRequest = function (duration, leaveType, staffId) {
     new Request(duration, leaveType, staffId)
 }
 
-// Staff makes request for leave
+// Staff makes a request for leave
 Staff.prototype.makeRequest = function (duration, leaveType) {
     Request.prototype.makeRequest(duration, leaveType, staffId = this.staffId)
 }
@@ -80,7 +81,7 @@ Staff.prototype.approveRequest = function (id) {
     return 'Access denied!';
 };
 
-// Admin declines a leave request
+// Admin declines a leave request by id
 Staff.prototype.declineRequest = function (id) {
     if (this.isAdmin) {
         for (let i = 0; i < database.request.length; i++) {
