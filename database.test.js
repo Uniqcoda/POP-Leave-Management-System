@@ -1,6 +1,6 @@
-let database = require('./index').database;
-let Staff = require('./index').Staff;
-let Admin = require('./index').Admin;
+let database = require('./database').database;
+let Staff = require('./database').Staff;
+let Admin = require('./database').Admin;
 
 let ola = new Staff('Ola', 'ola@ola.com');
 ola.saveDetails();
@@ -105,3 +105,4 @@ describe('Test cases for leave management', function () {
 })
 
 
+console.log(database);

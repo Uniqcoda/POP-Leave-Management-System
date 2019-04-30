@@ -4,18 +4,19 @@ let database = {
     request: []
 }
 
-// staff constructor
+// staff constructor function
 function Staff(name, email) {
     this.name = name;
     this.email = email;
-    this.staffId = (database.staff.length) ? database.staff[database.staff.length - 1].staffId + 1 : 1;
+    this.staffId =
+        (database.staff.length) ? database.staff[database.staff.length - 1].staffId + 1 : 1;
 }
 
 Staff.prototype.saveDetails = function () {
     database.staff.push(this);
 }
 
-// admin constructor
+// admin constructor function
 function Admin(name, email) {
     Staff.call(this, name, email);
     this.isAdmin = true;
@@ -24,12 +25,13 @@ function Admin(name, email) {
 Admin.prototype = Object.create(Staff.prototype);
 Admin.prototype.constructor = Admin;
 
-// request constructor
+// request constructor function
 function Request(duration, leaveType, staffId) {
     this.staffId = staffId;
     this.duration = duration;
     this.leaveType = leaveType;
-    this.id = (database.request.length) ? database.request[database.request.length - 1].id + 1 : 1;
+    this.id = 
+    (database.request.length) ? database.request[database.request.length - 1].id + 1 : 1;
     database.request.push(this);
 }
 
