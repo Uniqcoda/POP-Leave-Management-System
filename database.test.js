@@ -13,7 +13,6 @@ emeka.saveDetails();
 
 describe('Test cases for staff', function () {
     describe('Test for creating a staff', function () {
-        //should check if the new staff was created with the right details
         test('should check if the new staff was created with the right details', function () {
             let result = database.staff[0];
             expect(result).toHaveProperty('name', 'Ola');
@@ -22,7 +21,6 @@ describe('Test cases for staff', function () {
     })
 
     describe('Test for creating an admin', function () {
-        //should check if the new admin was created with the right details
         test('should check if the new admin was created with the right details', function () {
             expect(database.staff[1]).toHaveProperty('isAdmin', true);
         })
@@ -101,8 +99,5 @@ describe('Test cases for leave management', function () {
             let result = charles.readAllRequests();
             expect(result.length).toBe(4)
         });
-    })
+    });
 })
-
-
-console.log(database);
